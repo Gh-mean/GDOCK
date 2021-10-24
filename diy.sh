@@ -21,6 +21,10 @@ cp -f ../banner package/base-files/files/etc/
 echo '下载ServerChan'
 git clone https://github.com/tty228/luci-app-serverchan ../diy/luci-app-serverchan
 
+echo '下载helloword'
+sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+
 echo '集成diy目录'
 ln -s ../../diy ./package/openwrt-packages
 
